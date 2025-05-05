@@ -1,0 +1,42 @@
+/* App Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container,
+.quiz-container,
+.result-container {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.question-card {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 400px;
+  border-radius: 10px;
+ 
+}
+
+h1, h2, h4 {
+  color: #333;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px 5px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  /* transition: background-color 0.3s ease; */
+}
+
+button:hover {
+  background-color: #2980b9;
+}
