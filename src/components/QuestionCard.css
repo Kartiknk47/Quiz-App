@@ -1,0 +1,29 @@
+.question-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+    margin-top: 20px;
+  }
+  
+  .option-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    /* background-color: #f9f9f9; */
+    transition: background-color 0.2s ease;
+  }
+  
+  .option-button:hover {
+    background-color: #e0e0e0;
+  }
+  

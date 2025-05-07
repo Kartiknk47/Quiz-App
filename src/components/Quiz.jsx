@@ -23,6 +23,11 @@ const Quiz = ({ setScore, setTotalQuestions }) => {
       navigate('/result');
     }
   };
+  const handleBack = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
+  };
 
   return (
     <div className="quiz-container">
@@ -32,6 +37,15 @@ const Quiz = ({ setScore, setTotalQuestions }) => {
         answer={quizData[currentQuestion].answer}
         onAnswer={handleAnswer}
       />
+       <div className="quiz-navigation">
+        <button
+          onClick={handleBack}
+          disabled={currentQuestion === 0}
+          className="back-button"
+        >
+          Back
+        </button>
+      </div>
     </div>
   );
 };

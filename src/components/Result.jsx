@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Result.css'; 
+// import './Result.css'; 
 
 const Result = ({ score = 0, totalQuestions = 0 }) => {
   const navigate = useNavigate();
