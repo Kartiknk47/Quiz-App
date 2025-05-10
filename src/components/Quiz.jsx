@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import quizData from '../data';
 import QuestionCard from './QuestionCard';
-import './Quiz.css'
+import './Quiz.css';
 
 const Quiz = ({ setScore, setTotalQuestions }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -10,23 +10,30 @@ const Quiz = ({ setScore, setTotalQuestions }) => {
   const navigate = useNavigate();
 
   const handleAnswer = (isCorrect) => {
+    const updatedScore = isCorrect ? score + 1 : score;
     if (isCorrect) {
-      setLocalScore(score + 1);
+      setLocalScore(updatedScore);
     }
 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < quizData.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      setScore(score + (isCorrect ? 1 : 0));
+      // Make sure to update parent's score with the final updated score
+      setScore(updatedScore);
       setTotalQuestions(quizData.length);
       navigate('/result');
     }
   };
+
   const handleBack = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
     }
+  };
+
+  const handleBackToHomepage = () => {
+    navigate('/');
   };
 
   return (
@@ -37,13 +44,19 @@ const Quiz = ({ setScore, setTotalQuestions }) => {
         answer={quizData[currentQuestion].answer}
         onAnswer={handleAnswer}
       />
-       <div className="quiz-navigation">
+      <div className="quiz-navigation">
         <button
           onClick={handleBack}
           disabled={currentQuestion === 0}
           className="back-button"
         >
-          Back
+          Previous
+        </button>
+        <button
+          onClick={handleBackToHomepage}
+          className="back-button"
+        >
+          Back To Homepage
         </button>
       </div>
     </div>
